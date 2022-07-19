@@ -2,12 +2,11 @@
 
 <!DOCTYPE html>
 
-<html lang="es">
+<html lang="en">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - Wingtip Toys</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -25,6 +24,7 @@
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -46,24 +46,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">Wingtip Toys</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Registrarse</a></li>
-                                <li><a runat="server" href="~/Account/Login">Iniciar sesión</a></li>
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hola. <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
@@ -73,12 +73,18 @@
                 </div>
             </div>
         </div>
+        <div id="TitleContent" style="text-align: center">
+            <a runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" BorderStyle="None" />
+            </a>  
+            <br />  
+        </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Wingtip Toys</p>
             </footer>
         </div>
     </form>
